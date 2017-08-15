@@ -19,7 +19,7 @@ HEADERS       = $(SRCPATH)msiklm.h
 SOURCES       = $(SRCPATH)main.c $(SRCPATH)msiklm.c
 OBJECTS       = main.o msiklm.o
 TARGET        = msiklm
-INSTALLPREFIX = /usr/local/bin
+INSTALLPREFIX = /usr/bin
 
 
 ####### Build rules

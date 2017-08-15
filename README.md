@@ -4,6 +4,7 @@ The MSI Keyboard Light Manager (MSIKLM) is an easy-to-use tool that allows to co
 SteelSeries keyboards of MSI gaming notebooks with Linux in almost the same way as the
 SteelSeries Engine can do using Windows.
 
+**This fork works on Solus distribution: https://solus-project.com/**
 
 # INSTALLATION & REQUIREMENTS
 ## Manual installation

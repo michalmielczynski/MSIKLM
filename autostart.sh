@@ -16,17 +16,17 @@ if [ "$1" != "--disable" ]; then
     # activate the autostart
 
     # autostart requires 'msiklm' to be installed
-    if [ ! -f '/usr/local/bin/msiklm' ]; then
+    if [ ! -f '/usr/bin/msiklm' ]; then
         echo "MSI Keyboard Light Manager is not installed, hence no autostart possible"
         exit 1
     fi
 
-    if (sudo /usr/local/bin/msiklm $@); then
+    if (sudo /usr/bin/msiklm $@); then
         echo "Activating MSIKLM autostart..."
         sleep 1
 
         #redirection with '>' or '>>' takes place before 'sudo' is applied, hence not directly usable here
-        run="ACTION==\"add\", ATTRS{idVendor}==\"1770\", ATTRS{idProduct}==\"ff00\", RUN+=\"/usr/local/bin/msiklm "
+        run="ACTION==\"add\", ATTRS{idVendor}==\"1770\", ATTRS{idProduct}==\"ff00\", RUN+=\"/usr/bin/msiklm "
         for arg in "$@"; do
             run="$run '$arg'"
         done
@@ -35,7 +35,7 @@ if [ "$1" != "--disable" ]; then
         sudo sh -c "echo '# run MSIKLM to configure the keyboard illumination' > $file"
         echo $run | sudo tee -a $file > /dev/null
 
-        sudo chmod 755 $file
+        sudo chmod 644 $file
 
         echo "Autostart rules file '$file' created"
     else
